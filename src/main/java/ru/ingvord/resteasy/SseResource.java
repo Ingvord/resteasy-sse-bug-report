@@ -25,6 +25,6 @@ public class SseResource {
     @GET
     @Produces(MediaType.SERVER_SENT_EVENTS)
     public void get(@Context SseEventSink sink){
-        this.broadcaster.register(sink);
+        this.broadcaster.register(new FixedSseEventSink(sink));
     }
 }
